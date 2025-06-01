@@ -11,7 +11,7 @@ type WeatherItem = {
   Status: string;
 };
 
-function Weather() {
+function WeatherScreen() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const [weatherList, setWeatherList] = useState<WeatherItem[]>([]);
@@ -69,5 +69,5 @@ function Weather() {
   );
 }
 
-export default Weather;
+export default WeatherScreen;
 

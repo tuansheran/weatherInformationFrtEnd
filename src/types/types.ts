@@ -1,4 +1,4 @@
-export default interface WeatherProps {
+export  type  WeatherProps = {
   location: string
   time: string
   condition: string
