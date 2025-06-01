@@ -1,4 +1,3 @@
-import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AuthenticationScreen from './screens/Authentication'
 import Weather from './screens/Weather'
@@ -15,4 +14,3 @@ function App() {
 }
 
 export default App
-
