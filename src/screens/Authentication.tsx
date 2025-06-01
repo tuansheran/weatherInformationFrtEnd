@@ -15,8 +15,10 @@ function AuthenticationScreen() {
 
   return (
     <div className="h-screen">
-      <h1 className="text-lg text-center">Welcome To Weather Application</h1>
-      <LoginButton />
+      <h1 className=" text-6xl text-center text-white ">Welcome To Weather Application</h1>
+      <div className=" flex justify-center pt-12">
+        <LoginButton />
+      </div>
     </div>
   );
 }
