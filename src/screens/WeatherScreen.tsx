@@ -1,10 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import WeatherCard from "../components/WeatherCard";
 import axios from "axios";
 import type { WeatherItem } from "../types/types";
-
 
 function WeatherScreen() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -43,27 +42,47 @@ function WeatherScreen() {
   return (
     <div className="p-6 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {weatherList.map((item) => (
-        <WeatherCard
+        <Link
           key={item.CityCode}
-          location={item.CityName}
-          time={formattedTime}
-          condition={item.Status}
-          temperature={Math.round(item.Temp)}
-          tempMin={25} 
-          tempMax={30}     
-          pressure={1015}    
-          humidity={70}       
-          visibility={10}     
-          windSpeed={5.0}     
-          windDirection={180} 
-          sunrise="6:00am"    
-          sunset="6:00pm"  
-          variant="lg"   
-        />
+          to={`/weather/${item.CityCode}`}
+          state={{
+            location: item.CityName,
+            time: formattedTime,
+            condition: item.Status,
+            temperature: Math.round(item.Temp),
+            tempMin: 25,
+            tempMax: 30,
+            pressure: 1015,
+            humidity: 70,
+            visibility: 10,
+            windSpeed: 5.0,
+            windDirection: 180,
+            sunrise: "6:00am",
+            sunset: "6:00pm",
+          }}
+        >
+          <WeatherCard
+            location={item.CityName}
+            time={formattedTime}
+            condition={item.Status}
+            temperature={Math.round(item.Temp)}
+            tempMin={25}
+            tempMax={30}
+            pressure={1015}
+            humidity={70}
+            visibility={10}
+            windSpeed={5.0}
+            windDirection={180}
+            sunrise="6:00am"
+            sunset="6:00pm"
+            variant="sm"
+          />
+        </Link>
       ))}
     </div>
   );
 }
 
 export default WeatherScreen;
+
 
