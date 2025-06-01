@@ -2,7 +2,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginButton from "../components/LogInButton";
-import LogoutButton from "../components/LogOutButton";
 
 function AuthenticationScreen() {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -15,10 +14,9 @@ function AuthenticationScreen() {
   }, [isAuthenticated, isLoading, navigate]);
 
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className="h-screen">
+      <h1 className="text-lg text-center">Welcome To Weather Application</h1>
       <LoginButton />
-      <LogoutButton />
     </div>
   );
 }

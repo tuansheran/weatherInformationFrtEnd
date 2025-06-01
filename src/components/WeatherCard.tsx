@@ -1,3 +1,4 @@
+import React from 'react'
 
 type WeatherProps = {
   location: string
@@ -31,8 +32,7 @@ const WeatherCard: React.FC<WeatherProps> = ({
   sunset,
 }) => {
   return (
-    <div className="max-w-md mx-auto rounded-lg overflow-hidden shadow-lg font-sans">
-      {/* Top Blue Section */}
+    <div className="max-w-sm  rounded-lg overflow-hidden shadow-lg font-sans">
       <div className="bg-blue-500 text-white p-6 text-center">
         <h2 className="text-xl font-semibold">{location}</h2>
         <p className="text-sm mb-2">{time}</p>
@@ -47,7 +47,6 @@ const WeatherCard: React.FC<WeatherProps> = ({
         </div>
       </div>
 
-      {/* Bottom Gray Section */}
       <div className="bg-gray-900 text-white p-6 grid grid-cols-2 gap-y-4 text-sm">
         <div><strong>Pressure:</strong> {pressure} hPa</div>
         <div><strong>Sunrise:</strong> {sunrise}</div>
