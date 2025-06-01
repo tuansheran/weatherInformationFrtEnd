@@ -12,4 +12,13 @@ export  type  WeatherProps = {
   windDirection: number
   sunrise: string
   sunset: string
+  variant: "lg" | "sm"
 }
+
+export type WeatherItem = {
+  CityCode: number;
+  CityName: string;
+  Temp: number;
+  Status: string;
+};
+

@@ -3,13 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import WeatherCard from "../components/WeatherCard";
 import axios from "axios";
+import type { WeatherItem } from "../types/types";
 
-type WeatherItem = {
-  CityCode: number;
-  CityName: string;
-  Temp: number;
-  Status: string;
-};
 
 function WeatherScreen() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -62,7 +57,8 @@ function WeatherScreen() {
           windSpeed={5.0}     
           windDirection={180} 
           sunrise="6:00am"    
-          sunset="6:00pm"     
+          sunset="6:00pm"  
+          variant="lg"   
         />
       ))}
     </div>

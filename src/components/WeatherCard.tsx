@@ -1,7 +1,6 @@
 import React from 'react'
 import type { WeatherProps } from "../types/types";
 
-
 const WeatherCard: React.FC<WeatherProps> = ({
   location,
   time,
@@ -16,9 +15,21 @@ const WeatherCard: React.FC<WeatherProps> = ({
   windDirection,
   sunrise,
   sunset,
+  variant = "lg", 
 }) => {
+  if (variant === "sm") {
+    return (
+      <div className="max-w-xs rounded-lg shadow-md p-4 bg-blue-100 text-gray-800">
+        <h3 className="text-lg font-bold">{location}</h3>
+        <p className="text-xs text-gray-600">{time}</p>
+        <p className="text-2xl font-bold mt-2">{temperature}°C</p>
+        <p className="text-sm">{condition}</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="max-w-sm  rounded-lg overflow-hidden shadow-lg font-sans cursor-cell">
+    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg font-sans cursor-pointer">
       <div className="bg-blue-500 text-white p-6 text-center">
         <h2 className="text-xl font-semibold">{location}</h2>
         <p className="text-sm mb-2">{time}</p>
@@ -45,7 +56,8 @@ const WeatherCard: React.FC<WeatherProps> = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default WeatherCard
+export default WeatherCard;
+
